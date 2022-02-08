@@ -1,5 +1,5 @@
 from raylib import*
-
+from game.pipe import *
 import pyray
 
 
@@ -24,7 +24,7 @@ def main():
 
     while not WindowShouldClose():
         
-        
+        pipes.draw_pipe()
         
         pyray.clear_background(BLACK)
         pyray.end_drawing()
