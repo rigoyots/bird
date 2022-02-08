@@ -2,37 +2,112 @@ from raylib import *
 import random
 import pyray
 
-class object:
+class objects:
+  
+    def __init__(self, width, height, color):
+        self.width = width
+        self.height = height
+        self.color = WHITE
+
+
+    def move_pipes_X():
+
+        pipe_1.x -= int(300 *GetFrameTime())
+        pipe_2.x -= int(300 *GetFrameTime())
+        pipe_3.x -= int(300 *GetFrameTime())
+
+    def move_pipes_up_down():
+
+        if pipe_1.x <= -20:
+            
+            pipe_1.height = random.randint(50, 100)
+
+        
+        if pipe_2.x <= -20:
+            
+            pipe_2.height = random.randint(50, 150)
+
+        
+        if pipe_3.x <= -20:
+            
+            pipe_3.height = random.randint(50, 200)
+
     
-    pipe_x = []
-    pipe_y = []
-    pipe_color = []
-    
-    for i in range(0,5):
-        new_pipe_x = random.randint(0,200)
-        new_pipe_y = random.randint(0,200)
-        new_pipe_color = random.randint(0,255), random.randint(0,255), random.randint(0,255) 
+    def bounds():
         
-        pipe_x.append(new_pipe_x)
+        if pipe_1.x <= -20:
+            pipe_1.x = 900
+            
         
-        pipe_y.append(new_pipe_y)
+        if pipe_2.x <= -20:
+            pipe_2.x = 900
+           
         
-        
-    def __init__(self, x, y , width, height):
+        if pipe_3.x <= -20:
+            pipe_3.x = 900
+            
+
+
+  
+
+
+class object_pipe_1(objects):
+   
+    def __init__(self,x,y, width, height, color):
+        super().__init__(width, height, color)
+
         self.x = x
         self.y = y
-        self.width = width
-        self.hieght = hieght
-        self.color = color
+    
+    def pipeloader():
+        
+
+        
+    
+            
+
+        pyray.draw_rectangle(pipe_1.x,pipe_1.y, 50, pipe_1.height, WHITE)
+
+pipe_1 = object_pipe_1(200, 0, 200, 50, WHITE)
+
+
+
+class object_pipe_2(objects):
+  
+    def __init__(self,x,y, width, height, color):
+        super().__init__(width, height, color)
+        self.x = x
+        self.y = y
+
 
     def pipeloader():
         
 
         
-        for i in range(0,2):
+       
+            
+        pyray.draw_rectangle(pipe_2.x,pipe_2.y, 50,  pipe_2.height, WHITE)
+
+pipe_2 = object_pipe_1(400, 0, 200, 50, WHITE)
+
+class object_pipe_3(objects):
+   
+    def __init__(self,x,y,width, height, color):
+        super().__init__(width, height, color)
+        self.x = x
+        self.y = y
+
+
+    def pipeloader():
+        
+
+        
+        
             
 
-            pyray.draw_rectangle(object.pipe_x[i],object.pipe_y[i], 20, 20, WHITE)
+        pyray.draw_rectangle(pipe_3.x,pipe_2.y, 50,  pipe_3.height, WHITE)
+
+pipe_3 = object_pipe_1(600, 0, 200, 50, WHITE)
 
 
 
