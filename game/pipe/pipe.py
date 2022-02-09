@@ -14,14 +14,14 @@ class obstacle:
     x = [0]
     y = []
     width = []
-    height = [110]
+    height = [150]
 
     for i in range(0,n_pipes):
         
         new_x = x[i] + 200
         new_y = int(0) 
         new_width = int(50)
-        new_height = height[i]  
+        new_height = 250 
 
         x.append(int(new_x))
         y.append(int(new_y))
@@ -61,7 +61,19 @@ class obstacle:
             for i in range(2,obstacle.n_pipes):
                 if obstacle.x[i] <= obstacle.bounds_left:
                     obstacle.x[i] = int(obstacle.bounds_right)
-                    obstacle.height[i] = int(random.randint(150, 350))
+                    obstacle.y[i] = int(random.randint(-100, 0))
+    
+    def animate(p_p):
+       
+        
+        for i in range(2,7):
+        
+       
+
+            pyray.draw_texture(p_p, int(obstacle.x[i]) , int(obstacle.y[i] - 30 ) , WHITE)
+
+       
+             
              
 
 
@@ -74,14 +86,17 @@ class bottom():
     x = [0]
     y = []
     width = []
-    height = [110]
+    height = [150]
+
+
+   
 
     for i in range(0,n_pipes):
         
         new_x = x[i] + 200
         new_y = int(500) 
         new_width = int(50)
-        new_height = 600
+        new_height = 250
 
         x.append(int(new_x))
         y.append(int(new_y))
@@ -100,7 +115,7 @@ class bottom():
       
         for i in range(2,obstacle.n_pipes):
             
-            pyray.draw_rectangle(bottom.x[i], bottom.y[i], bottom.width[i], bottom.height[i], WHITE)
+            pyray.draw_rectangle(bottom.x[i], bottom.y[i], bottom.width[i], bottom.height[i], GREEN)
 
        
 
@@ -121,21 +136,17 @@ class bottom():
             for i in range(2,obstacle.n_pipes):
                 if bottom.x[i] <= obstacle.bounds_left:
                     bottom.x[i] = int(obstacle.bounds_right)
-                    bottom.y[i] = int(obstacle.height[i] * 1.8) 
+                    bottom.y[i] = int(random.randint(400, 500))
 
 
-    def animate():
-        pipe_pic = pyray.load_image("bottom.png")
-        pyray.image_resize(pipe_pic, 20, 200)
-        p_p = pyray.load_texture_from_image(pipe_pic)
-   
-        pyray.unload_image(pipe_pic)
+    def animate(p_p):
+       
         
-        for i in range(2,5):
-             #pipe picture 
+        for i in range(2,7):
+        
        
 
-            pyray.draw_texture(p_p, int(bottom.x[i]) , int(bottom.y[i]) , WHITE)
+            pyray.draw_texture(p_p, int(bottom.x[i] ) , int(bottom.y[i]  ) , WHITE)
 
        
              
@@ -144,4 +155,3 @@ class bottom():
 
 
 
-bottom.animate()
