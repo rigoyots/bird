@@ -41,15 +41,25 @@ def main():
    
     
    
-  
+ 
     
-    keep_score = 0
-    
-   
     pyray.init_window(800,600, "Flappy Ball")
     SetWindowState(FLAG_VSYNC_HINT)
+    
+    #Bird picture 
+    flappy = pyray.load_image("flappy.png")
+    pyray.image_resize(flappy, 20, 20)
+    p = pyray.load_texture_from_image(flappy)
+   
+    pyray.unload_image(flappy)
+    
+   
+    
+    keep_score = 0
 
     while not WindowShouldClose():
+        
+        
         
         keep_score += bird.y / 100000
         score = str(int(keep_score))
@@ -58,15 +68,20 @@ def main():
         game_over = check_collid()
         # Bird
         Bird.draw_bird()
+        pyray.draw_texture(p, int(bird.x -10) , int(bird.y -10 ) , WHITE)
         Bird.move_bird()
         Bird.bird_out_of_bounds()
     
        
        # Pipe
         obstacle.bounds(game_over)
+        
+        
+        
         obstacle.make_pipe()
         obstacle.move_pipes_X(game_over)
         bottom.bounds(game_over)
+        bottom.animate()
         bottom.make_pipe()
         bottom.move_pipes_X(game_over)
 
