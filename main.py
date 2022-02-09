@@ -1,6 +1,7 @@
 from raylib import *
 from game.pipe.pipe import *
 from game.Bird.bird import *
+from game.audio.audio import audio, audio_1
 import pyray
 import time 
 
@@ -67,12 +68,9 @@ def main():
     keep_score = 0
     
     #auidio
-    pyray.init_audio_device()
-    flap = pyray.load_sound("flap.wav")
-    gameover = pyray.load_sound("over1.wav")
-    pyray.set_sound_volume(flap, 0.5)
-    pyray.set_sound_volume(gameover, 0.9)
-
+    flap = audio()
+    gameover = audio_1()
+   
     while not WindowShouldClose():
         check_collid()
         game_over = check_collid()
