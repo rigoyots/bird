@@ -122,10 +122,26 @@ class bottom():
                 if bottom.x[i] <= obstacle.bounds_left:
                     bottom.x[i] = int(obstacle.bounds_right)
                     bottom.y[i] = int(obstacle.height[i] * 1.8) 
+
+
+    def animate():
+        pipe_pic = pyray.load_image("bottom.png")
+        pyray.image_resize(pipe_pic, 20, 200)
+        p_p = pyray.load_texture_from_image(pipe_pic)
+   
+        pyray.unload_image(pipe_pic)
+        
+        for i in range(2,5):
+             #pipe picture 
+       
+
+            pyray.draw_texture(p_p, int(bottom.x[i]) , int(bottom.y[i]) , WHITE)
+
+       
              
 
 
 
 
 
-
+bottom.animate()
