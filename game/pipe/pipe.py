@@ -2,113 +2,127 @@ from raylib import *
 import random
 import pyray
 
-class objects:
-  
-    def __init__(self, width, height, color):
-        self.width = width
-        self.height = height
-        self.color = WHITE
+
+
+
+class obstacle:
+    speed_of_pipe = 300
+    n_pipes = 7
+    bounds_left = -100
+    bounds_right = 900
+
+    x = [0]
+    y = []
+    width = []
+    height = [110]
+
+    for i in range(0,n_pipes):
+        
+        new_x = x[i] + 200
+        new_y = int(0) 
+        new_width = int(50)
+        new_height = height[i]  
+
+        x.append(int(new_x))
+        y.append(int(new_y))
+        width.append(int(new_width))
+        height.append(int(new_height))
+
+       
+
+
+    def __init__(self, color):
+        self.color = color 
+
+
+
+    def make_pipe():
+      
+        for i in range(2,obstacle.n_pipes):
+            
+            pyray.draw_rectangle(obstacle.x[i], obstacle.y[i], obstacle.width[i], obstacle.height[i], WHITE)
+
+       
 
 
     def move_pipes_X():
-
-        pipe_1.x -= int(300 *GetFrameTime())
-        pipe_2.x -= int(300 *GetFrameTime())
-        pipe_3.x -= int(300 *GetFrameTime())
-
-    def move_pipes_up_down():
-
-        if pipe_1.x <= -20:
-            
-            pipe_1.height = random.randint(50, 100)
-
+      
         
-        if pipe_2.x <= -20:
-            
-            pipe_2.height = random.randint(50, 150)
+        for i in range(1,obstacle.n_pipes):
+            obstacle.x[i] -= int(obstacle.speed_of_pipe * GetFrameTime())
 
-        
-        if pipe_3.x <= -20:
-            
-            pipe_3.height = random.randint(50, 200)
+       
 
-    
+
+            
+     
     def bounds():
         
-        if pipe_1.x <= -20:
-            pipe_1.x = 900
-            
-        
-        if pipe_2.x <= -20:
-            pipe_2.x = 900
-           
-        
-        if pipe_3.x <= -20:
-            pipe_3.x = 900
-            
+        for i in range(2,obstacle.n_pipes):
+            if obstacle.x[i] <= obstacle.bounds_left:
+                obstacle.x[i] = int(obstacle.bounds_right)
+                obstacle.height[i] = int(random.randint(150, 350))
+             
 
 
-  
-
-
-class object_pipe_1(objects):
-   
-    def __init__(self,x,y, width, height, color):
-        super().__init__(width, height, color)
-
-        self.x = x
-        self.y = y
-    
-    def pipeloader():
-        
-
-        
-    
-            
-
-        pyray.draw_rectangle(pipe_1.x,pipe_1.y, 50, pipe_1.height, WHITE)
-
-pipe_1 = object_pipe_1(200, 0, 200, 50, WHITE)
-
-
-
-class object_pipe_2(objects):
-  
-    def __init__(self,x,y, width, height, color):
-        super().__init__(width, height, color)
-        self.x = x
-        self.y = y
-
-
-    def pipeloader():
-        
-
-        
        
             
-        pyray.draw_rectangle(pipe_2.x,pipe_2.y, 50,  pipe_2.height, WHITE)
+class bottom():
+    n_pipes = obstacle.n_pipes 
+    bounds_left = -100
+    bounds_right = 900
+    x = [0]
+    y = []
+    width = []
+    height = [110]
 
-pipe_2 = object_pipe_1(400, 0, 200, 50, WHITE)
-
-class object_pipe_3(objects):
-   
-    def __init__(self,x,y,width, height, color):
-        super().__init__(width, height, color)
-        self.x = x
-        self.y = y
-
-
-    def pipeloader():
+    for i in range(0,n_pipes):
         
+        new_x = x[i] + 200
+        new_y = int(500) 
+        new_width = int(50)
+        new_height = 600
 
-        
-        
+        x.append(int(new_x))
+        y.append(int(new_y))
+        width.append(int(new_width))
+        height.append(int(new_height))
+
+       
+
+
+    def __init__(self, color):
+        self.color = color 
+
+
+
+    def make_pipe():
+      
+        for i in range(2,obstacle.n_pipes):
             
+            pyray.draw_rectangle(bottom.x[i], bottom.y[i], bottom.width[i], bottom.height[i], RED)
 
-        pyray.draw_rectangle(pipe_3.x,pipe_2.y, 50,  pipe_3.height, WHITE)
+       
 
-pipe_3 = object_pipe_1(600, 0, 200, 50, WHITE)
 
+    def move_pipes_X():
+      
+        
+        for i in range(1,obstacle.n_pipes):
+            bottom.x[i] -= int(obstacle.speed_of_pipe * GetFrameTime())
+
+       
+
+
+            
+     
+    def bounds():
+        
+        for i in range(2,obstacle.n_pipes):
+            if bottom.x[i] <= obstacle.bounds_left:
+                bottom.x[i] = int(obstacle.bounds_right)
+                bottom.y[i] = int(obstacle.height[i] * 1.6) 
+             
 
 
 
