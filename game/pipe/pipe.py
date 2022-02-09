@@ -45,11 +45,18 @@ class obstacle:
        
 
 
-    def move_pipes_X(game_over):
+    def move_pipes_X(game_over, score):
       
           if not game_over:
             for i in range(1,obstacle.n_pipes):
-                obstacle.x[i] -= int(obstacle.speed_of_pipe * GetFrameTime())
+                if score <= 10:
+                     obstacle.x[i] -= int((obstacle.speed_of_pipe - 50)  * GetFrameTime())
+                if score >= 10 :
+                    obstacle.x[i] -= int((obstacle.speed_of_pipe + 0)  * GetFrameTime())
+                if score >= 15:
+                     obstacle.x[i] -= int((obstacle.speed_of_pipe + 100)  * GetFrameTime())
+                if score >= 20 :
+                    obstacle.x[i] -= int((obstacle.speed_of_pipe + 200)  * GetFrameTime())
 
        
 
@@ -61,7 +68,7 @@ class obstacle:
             for i in range(2,obstacle.n_pipes):
                 if obstacle.x[i] <= obstacle.bounds_left:
                     obstacle.x[i] = int(obstacle.bounds_right)
-                    obstacle.y[i] = int(random.randint(-100, 0))
+                    obstacle.y[i] = int(random.randint(-100, 50))
     
     def animate(p_p):
        
@@ -120,11 +127,18 @@ class bottom():
        
 
 
-    def move_pipes_X(game_over):
+    def move_pipes_X(game_over, score):
       
         if not game_over:
             for i in range(1,obstacle.n_pipes):
-                bottom.x[i] -= int(obstacle.speed_of_pipe * GetFrameTime())
+                if score <= 10:
+                     bottom.x[i] -= int((obstacle.speed_of_pipe - 50)  * GetFrameTime())
+                if score >= 10 :
+                    bottom.x[i] -= int((obstacle.speed_of_pipe + 0)  * GetFrameTime())
+                if score >= 15:
+                     bottom.x[i] -= int((obstacle.speed_of_pipe + 100)  * GetFrameTime())
+                if score >= 20 :
+                    bottom.x[i] -= int((obstacle.speed_of_pipe + 200)  * GetFrameTime())
 
        
 
@@ -136,7 +150,7 @@ class bottom():
             for i in range(2,obstacle.n_pipes):
                 if bottom.x[i] <= obstacle.bounds_left:
                     bottom.x[i] = int(obstacle.bounds_right)
-                    bottom.y[i] = int(random.randint(400, 500))
+                    bottom.y[i] = int(random.randint(400, 550))
 
 
     def animate(p_p):
