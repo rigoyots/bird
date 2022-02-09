@@ -38,7 +38,7 @@ def display_score(game_over, score):
 
 
 def main():
-   
+    
     
    
  
@@ -52,8 +52,18 @@ def main():
     p = pyray.load_texture_from_image(flappy)
    
     pyray.unload_image(flappy)
-    
+    #bottom pipe 
+    pipe_pic = pyray.load_image("pipe.png")
+    pyray.image_resize(pipe_pic, 50, 300)
+    p_p = pyray.load_texture_from_image(pipe_pic)
    
+    pyray.unload_image(pipe_pic)
+   #top pip
+    pipe_pic = pyray.load_image("downpipe.png")
+    pyray.image_resize(pipe_pic, 50, 300)
+    p_d_p = pyray.load_texture_from_image(pipe_pic)
+   
+    pyray.unload_image(pipe_pic)
     
     keep_score = 0
 
@@ -79,13 +89,19 @@ def main():
         
         
         obstacle.make_pipe()
+        obstacle.animate(p_d_p)
         obstacle.move_pipes_X(game_over)
         bottom.bounds(game_over)
-        bottom.animate()
+        
         bottom.make_pipe()
-        bottom.move_pipes_X(game_over)
+        bottom.animate(p_p)
+        
+       
 
-        pyray.clear_background(BLACK)
+        bottom.move_pipes_X(game_over)
+        
+
+        pyray.clear_background(RAYWHITE)
         pyray.end_drawing()
         
         
