@@ -66,10 +66,19 @@ def main():
     pyray.unload_image(pipe_pic)
     
     keep_score = 0
+    
+
+    pyray.init_audio_device()
+
+    flap = pyray.load_sound("flap.wav")
+
+    pyray.set_sound_volume(flap, 0.5)
+
 
     while not WindowShouldClose():
         
-        
+        if IsKeyPressed(KEY_SPACE):
+            pyray.play_sound(flap)
         
         keep_score += bird.y / 100000
         score = str(int(keep_score))
@@ -113,8 +122,8 @@ def main():
         display_score(game_over, score)
 
         
-
-
+    pyray.unload_sound(flap)
+    pyray.close_audio_device()
     pyray.close_window()
 
 if __name__ == "__main__":
