@@ -121,7 +121,7 @@ class bottom():
         for i in range(2,obstacle.n_pipes):
             if bottom.x[i] <= obstacle.bounds_left:
                 bottom.x[i] = int(obstacle.bounds_right)
-                bottom.y[i] = int(obstacle.height[i] * 1.6) 
+                bottom.y[i] = int(obstacle.height[i] * 1.8) 
              
 
 
