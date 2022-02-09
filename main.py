@@ -48,7 +48,7 @@ def main():
     
     #Bird picture 
     flappy = pyray.load_image("flappy.png")
-    pyray.image_resize(flappy, 20, 20)
+    pyray.image_resize(flappy, 40, 40)
     p = pyray.load_texture_from_image(flappy)
    
     pyray.unload_image(flappy)
