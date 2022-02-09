@@ -26,16 +26,16 @@ class Bird:
         elif IsKeyDown(KEY_SPACE):
             bird.y -= 400 * GetFrameTime()
         elif IsKeyUp(KEY_SPACE):
-            bird.y += 100 * GetFrameTime()
+            bird.y += 150 * GetFrameTime()
 
 
     def bird_out_of_bounds():
         """
         checks if the bird is out of bounds
         """
-        if bird.x <= 0:
-            bird.x = 2
-        elif bird.x >= 800:
-            bird.x = 599
+        if bird.y <= 0:
+            bird.y = 2
+        elif bird.y >= 600:
+            bird.y = 599
 
-bird = Bird(400, 550, 5)
+bird = Bird(200, 300, 5)
