@@ -1,5 +1,6 @@
 from raylib import *
 from game.pipe.pipe import *
+from game.bird.bird import *
 import pyray
 
 
@@ -23,9 +24,13 @@ def main():
     SetWindowState(FLAG_VSYNC_HINT)
 
     while not WindowShouldClose():
-        
-
+        # Bird
+        Bird.draw_bird()
+        Bird.move_bird()
+        Bird.bird_out_of_bounds()
+    
        
+       # Pipe
         object_pipe_1.pipeloader()
         object_pipe_2.pipeloader()
         object_pipe_3.pipeloader()
