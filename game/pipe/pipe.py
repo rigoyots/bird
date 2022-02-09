@@ -45,23 +45,23 @@ class obstacle:
        
 
 
-    def move_pipes_X():
+    def move_pipes_X(game_over):
       
-        
-        for i in range(1,obstacle.n_pipes):
-            obstacle.x[i] -= int(obstacle.speed_of_pipe * GetFrameTime())
+          if not game_over:
+            for i in range(1,obstacle.n_pipes):
+                obstacle.x[i] -= int(obstacle.speed_of_pipe * GetFrameTime())
 
        
 
 
             
      
-    def bounds():
-        
-        for i in range(2,obstacle.n_pipes):
-            if obstacle.x[i] <= obstacle.bounds_left:
-                obstacle.x[i] = int(obstacle.bounds_right)
-                obstacle.height[i] = int(random.randint(150, 350))
+    def bounds(game_over):
+        if not game_over:
+            for i in range(2,obstacle.n_pipes):
+                if obstacle.x[i] <= obstacle.bounds_left:
+                    obstacle.x[i] = int(obstacle.bounds_right)
+                    obstacle.height[i] = int(random.randint(150, 350))
              
 
 
@@ -100,28 +100,28 @@ class bottom():
       
         for i in range(2,obstacle.n_pipes):
             
-            pyray.draw_rectangle(bottom.x[i], bottom.y[i], bottom.width[i], bottom.height[i], RED)
+            pyray.draw_rectangle(bottom.x[i], bottom.y[i], bottom.width[i], bottom.height[i], WHITE)
 
        
 
 
-    def move_pipes_X():
+    def move_pipes_X(game_over):
       
-        
-        for i in range(1,obstacle.n_pipes):
-            bottom.x[i] -= int(obstacle.speed_of_pipe * GetFrameTime())
+        if not game_over:
+            for i in range(1,obstacle.n_pipes):
+                bottom.x[i] -= int(obstacle.speed_of_pipe * GetFrameTime())
 
        
 
 
             
      
-    def bounds():
-        
-        for i in range(2,obstacle.n_pipes):
-            if bottom.x[i] <= obstacle.bounds_left:
-                bottom.x[i] = int(obstacle.bounds_right)
-                bottom.y[i] = int(obstacle.height[i] * 1.8) 
+    def bounds(game_over):
+        if not game_over:
+            for i in range(2,obstacle.n_pipes):
+                if bottom.x[i] <= obstacle.bounds_left:
+                    bottom.x[i] = int(obstacle.bounds_right)
+                    bottom.y[i] = int(obstacle.height[i] * 1.8) 
              
 
 
