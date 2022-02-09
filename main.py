@@ -20,7 +20,7 @@ def main():
     
     
    
-    pyray.init_window(800,600, "spawn")
+    pyray.init_window(800,600, "Flappy Ball")
     SetWindowState(FLAG_VSYNC_HINT)
 
     while not WindowShouldClose():
