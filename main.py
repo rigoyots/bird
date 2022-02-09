@@ -1,6 +1,6 @@
 from raylib import *
 from game.pipe.pipe import *
-from game.Bird.bird import *
+from game.bird.bird import *
 import pyray
 import time 
 
