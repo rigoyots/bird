@@ -33,7 +33,7 @@ def check_collide():
 def main():
     
     
-    pyray.init_window(800,600, "Flappy Ball")
+    pyray.init_window(800,600, "Flappy Penguin")
     SetWindowState(FLAG_VSYNC_HINT)
     keep_score = 0
     #Bird picture 
@@ -60,6 +60,8 @@ def main():
         
         #score vaules
         keep_score += bird.y / 100000
+        if keep_score >= 20:
+            keep_score += .01
         score = str(int(keep_score))
         # Bird
         Bird.draw_bird()
@@ -70,12 +72,12 @@ def main():
         obstacle.bounds(game_over)
         obstacle.make_pipe()
         obstacle.animate(p_d_p)
-        obstacle.move_pipes_X(game_over)
+        obstacle.move_pipes_X(game_over, keep_score)
         #bottom pipe
         bottom.bounds(game_over)
         bottom.make_pipe()
         bottom.animate(p_p)
-        bottom.move_pipes_X(game_over)
+        bottom.move_pipes_X(game_over, keep_score)
         #background
         pyray.clear_background(RAYWHITE)
         pyray.end_drawing()
