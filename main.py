@@ -14,7 +14,7 @@ def main():
    
     
    
-
+  
     
     
     
@@ -24,14 +24,14 @@ def main():
 
     while not WindowShouldClose():
         
-
-       
-        object_pipe_1.pipeloader()
-        object_pipe_2.pipeloader()
-        object_pipe_3.pipeloader()
-        objects.move_pipes_X()
-        objects.move_pipes_up_down()
-        objects.bounds()
+        
+        obstacle.make_pipe()
+        obstacle.move_pipes_X()
+        obstacle.bounds()
+        bottom.make_pipe()
+        bottom.move_pipes_X()
+        bottom.bounds()
+      
 
 
         pyray.clear_background(BLACK)
