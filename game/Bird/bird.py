@@ -15,7 +15,7 @@ class Bird:
         """
         draws the bird
         """
-        pyray.draw_circle(int(bird.x), int(bird.y), bird.r, WHITE)
+        pyray.draw_circle(int(bird.x), int(bird.y), bird.r, BLACK)
 
     def move_bird():
         """
