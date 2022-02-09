@@ -21,7 +21,7 @@ def pipe_2():
     return p_p
 
 def bird_pic():
-    flappy = pyray.load_image("flappy.png")
+    flappy = pyray.load_image("flappy3.png")
     pyray.image_resize(flappy, 40, 40)
     p = pyray.load_texture_from_image(flappy)
    
