@@ -1,6 +1,6 @@
 from raylib import *
 from game.pipe.pipe import *
-from game.bird.bird import *
+from game.Bird.bird import *
 import pyray
 import time 
 
@@ -52,39 +52,44 @@ def main():
     p = pyray.load_texture_from_image(flappy)
    
     pyray.unload_image(flappy)
-    #bottom pipe 
+    #bottom pipe picture
     pipe_pic = pyray.load_image("pipe.png")
     pyray.image_resize(pipe_pic, 50, 300)
     p_p = pyray.load_texture_from_image(pipe_pic)
-   
     pyray.unload_image(pipe_pic)
-   #top pip
+   
+   #top pipe picture
     pipe_pic = pyray.load_image("downpipe.png")
     pyray.image_resize(pipe_pic, 50, 300)
     p_d_p = pyray.load_texture_from_image(pipe_pic)
-   
     pyray.unload_image(pipe_pic)
     
     keep_score = 0
     
-
+    #auidio
     pyray.init_audio_device()
-
     flap = pyray.load_sound("flap.wav")
-
+    gameover = pyray.load_sound("over1.wav")
     pyray.set_sound_volume(flap, 0.5)
-
+    pyray.set_sound_volume(gameover, 0.9)
 
     while not WindowShouldClose():
+        check_collid()
+        game_over = check_collid()
         
         if IsKeyPressed(KEY_SPACE):
-            pyray.play_sound(flap)
+            if not game_over:
+                pyray.play_sound(flap)
+        if not game_over:
+            pyray.play_sound(gameover)
+               
+        
+       
         
         keep_score += bird.y / 100000
         score = str(int(keep_score))
         
-        check_collid()
-        game_over = check_collid()
+      
         # Bird
         Bird.draw_bird()
         pyray.draw_texture(p, int(bird.x -10) , int(bird.y -10 ) , WHITE)
@@ -121,7 +126,7 @@ def main():
         check_collid()
         display_score(game_over, score)
 
-        
+    pyray.unload_sound(gameover)        
     pyray.unload_sound(flap)
     pyray.close_audio_device()
     pyray.close_window()
