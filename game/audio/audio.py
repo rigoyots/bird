@@ -19,6 +19,6 @@ def audio():
 def audio_1():
  
     gameover = pyray.load_sound("over.wav")
-    pyray.set_sound_volume(gameover, 0.9)
+   
 
     return gameover
