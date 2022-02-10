@@ -6,6 +6,10 @@ import pyray
 
 
 class obstacle:
+    
+    """ 
+    List of vairbles for obstacle class
+    """
     speed_of_pipe = 300
     n_pipes = 7
     bounds_left = -100
@@ -17,7 +21,9 @@ class obstacle:
     height = [150]
 
     for i in range(0,n_pipes):
-        
+        """
+        makes new pipes 
+        """
         new_x = x[i] + 200
         new_y = int(0) 
         new_width = int(50)
@@ -39,7 +45,9 @@ class obstacle:
     def make_pipe():
       
         for i in range(2,obstacle.n_pipes):
-            
+            """
+            DRAWS out all the pipes on the screen
+            """
             pyray.draw_rectangle(obstacle.x[i], obstacle.y[i], obstacle.width[i], obstacle.height[i], WHITE)
 
        
@@ -72,7 +80,9 @@ class obstacle:
     
     def animate(p_p):
        
-        
+        """
+       puts the image on top of the pipe
+        """
         for i in range(2,7):
         
        
@@ -87,6 +97,12 @@ class obstacle:
        
             
 class bottom():
+    
+    
+    """ 
+    List of vairbles for obstacle class
+    """
+    
     n_pipes = obstacle.n_pipes 
     bounds_left = -100
     bounds_right = 900
@@ -121,14 +137,18 @@ class bottom():
     def make_pipe():
       
         for i in range(2,obstacle.n_pipes):
-            
+            """
+            DRAWS out all the pipes on the screen
+            """
             pyray.draw_rectangle(bottom.x[i], bottom.y[i], bottom.width[i], bottom.height[i], GREEN)
 
        
 
 
     def move_pipes_X(game_over, score):
-      
+        """
+        MOVES all the pipes along the x axis
+        """
         if not game_over:
             for i in range(1,obstacle.n_pipes):
                 if score <= 10:
@@ -146,6 +166,10 @@ class bottom():
             
      
     def bounds(game_over):
+        
+        """
+        gives a limit to x axis for the pipes
+        """
         if not game_over:
             for i in range(2,obstacle.n_pipes):
                 if bottom.x[i] <= obstacle.bounds_left:
@@ -154,7 +178,9 @@ class bottom():
 
 
     def animate(p_p):
-       
+        """
+       puts the image on top of the pipe
+        """
         
         for i in range(2,7):
         
