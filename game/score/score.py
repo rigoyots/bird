@@ -7,7 +7,9 @@ import time
 
 def display_score(game_over, score): 
     
-    
+    """
+    displays socre and says game over when the game ends 
+    """
     
     if not game_over:
         DrawText(bytes("score: ", encoding='utf8'), 10, 250, int(60), GREEN)
