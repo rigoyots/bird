@@ -8,7 +8,7 @@ import time
 def display_score(game_over, score): 
     
     """
-    displays socre and says game over when the game ends 
+    displays score and says game over when the game ends 
     """
     
     if not game_over:

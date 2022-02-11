@@ -8,7 +8,16 @@ import pyray
 class obstacle:
     
     """ 
-    List of vairbles for obstacle class
+    List of vairbles for obstacle class.
+
+    Responsibilites:
+        makes the pipe
+        moves the pipe
+        checks the bounds
+        animates the pipes
+
+    Attributes:
+        self.color = color
     """
     speed_of_pipe = 300
     n_pipes = 7
@@ -97,10 +106,18 @@ class obstacle:
        
             
 class bottom():
-    
-    
+
     """ 
-    List of vairbles for obstacle class
+    List of vairbles for bottom class.
+
+    Responsibilites:
+        makes the pipe
+        moves the pipe
+        checks the bounds
+        animates the pipes
+
+    Attributes:
+        self.color = color
     """
     
     n_pipes = obstacle.n_pipes 

@@ -3,7 +3,17 @@ import pyray
 
 class Bird:
     """
-    Bird
+    The bird class is the character that the user will play. 
+
+    Responsibilites:
+        draws the bird
+        moves the bird
+        checks if the bird is out of bounds
+
+    Attributes:
+        self.x = x
+        self.y = y
+        self.r = r
     """
 
     def __init__(self, x, y, r):
