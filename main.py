@@ -1,8 +1,8 @@
 from raylib import *
 from game.pipe.pipe import *
 from game.Bird.bird import *
-from game.audio.audio import audio, audio_1
-from game.picture.pictures import bird_pic, pipe_1, pipe_2
+from game.audio.audio import audio
+from game.picture.pictures import pictures
 from game.score.score import display_score
 import pyray
 import time 
@@ -37,14 +37,14 @@ def main():
     SetWindowState(FLAG_VSYNC_HINT)
     keep_score = 0
     #Bird picture 
-    p = bird_pic()
+    p = pictures.bird_pic()
     #bottom pipe picture
-    p_p = pipe_2()
+    p_p = pictures.pipe_2()
    #top pipe picture
-    p_d_p = pipe_1()
+    p_d_p = pictures.pipe_1()
     #auidio
-    flap = audio()
-    gameover = audio_1()
+    flap = audio.audio()
+    gameover = audio.audio_1()
    
     while not WindowShouldClose():
         #checking if game is over 
