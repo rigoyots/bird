@@ -1,14 +1,14 @@
 from raylib import *
 import pyray 
 
-class Bird:
+class Bird():
     """
-    The bird class is the character that the user will play. 
+    The Bird class is the character that the user will play. 
 
     Responsibilites:
-        draws the bird
-        moves the bird
-        checks if the bird is out of bounds
+        Draws the bird.
+        Moves the bird.
+        Checks if the bird is out of bounds.
 
     Attributes:
         self.x = x
@@ -17,19 +17,22 @@ class Bird:
     """
 
     def __init__(self, x, y, r):
+        """
+        Initializes the Bird class.
+        """
         self.x = x
         self.y = y
         self.r = r
 
     def draw_bird():
         """
-        draws the bird
+        Draws the bird.
         """
         pyray.draw_circle(int(bird.x), int(bird.y), bird.r, BLACK)
 
     def move_bird():
         """
-        moves the bird
+        Moves the bird.
         """
         if IsKeyPressed(KEY_SPACE): 
             bird.y -= 600 * GetFrameTime()
@@ -41,7 +44,7 @@ class Bird:
 
     def bird_out_of_bounds():
         """
-        checks if the bird is out of bounds
+        Checks if the bird is out of bounds.
         """
         if bird.y <= 0:
             bird.y = 2
