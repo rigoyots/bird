@@ -2,13 +2,9 @@ from raylib import *
 import random
 import pyray
 
-
-
-
 class obstacle:
-    
     """ 
-    List of vairbles for obstacle class.
+    List of vairbles for the Obstacle class.
 
     Responsibilites:
         makes the pipe
@@ -31,7 +27,7 @@ class obstacle:
 
     for i in range(0,n_pipes):
         """
-        makes new pipes 
+        Makes new pipes.
         """
         new_x = x[i] + 200
         new_y = int(0) 
@@ -43,28 +39,25 @@ class obstacle:
         width.append(int(new_width))
         height.append(int(new_height))
 
-       
-
-
     def __init__(self, color):
+        """
+        Initializes the Pipe class.
+        """
         self.color = color 
 
-
-
     def make_pipe():
-      
+        """
+        Makes a new pipe.
+        """
         for i in range(2,obstacle.n_pipes):
-            """
-            DRAWS out all the pipes on the screen
-            """
+            # DRAWS out all the pipes on the screen
             pyray.draw_rectangle(obstacle.x[i], obstacle.y[i], obstacle.width[i], obstacle.height[i], WHITE)
 
-       
-
-
     def move_pipes_X(game_over, score):
-      
-          if not game_over:
+        """
+        Moves the pipes.
+        """
+        if not game_over:
             for i in range(1,obstacle.n_pipes):
                 if score <= 10:
                      obstacle.x[i] -= int((obstacle.speed_of_pipe - 50)  * GetFrameTime())
@@ -73,14 +66,12 @@ class obstacle:
                 if score >= 15:
                      obstacle.x[i] -= int((obstacle.speed_of_pipe + 100)  * GetFrameTime())
                 if score >= 20 :
-                    obstacle.x[i] -= int((obstacle.speed_of_pipe + 200)  * GetFrameTime())
-
-       
-
-
-            
+                    obstacle.x[i] -= int((obstacle.speed_of_pipe + 200)  * GetFrameTime())      
      
     def bounds(game_over):
+        """
+        Sets the bounds of the game.
+        """
         if not game_over:
             for i in range(2,obstacle.n_pipes):
                 if obstacle.x[i] <= obstacle.bounds_left:
@@ -88,25 +79,13 @@ class obstacle:
                     obstacle.y[i] = int(random.randint(-100, 50))
     
     def animate(p_p):
-       
         """
-       puts the image on top of the pipe
+        Puts the image on top of the pipe.
         """
         for i in range(2,7):
-        
-       
-
-            pyray.draw_texture(p_p, int(obstacle.x[i]) , int(obstacle.y[i] - 30 ) , WHITE)
-
-       
-             
-             
-
-
-       
-            
+            pyray.draw_texture(p_p, int(obstacle.x[i]) , int(obstacle.y[i] - 30 ) , WHITE)       
+                         
 class bottom():
-
     """ 
     List of vairbles for bottom class.
 
@@ -119,7 +98,6 @@ class bottom():
     Attributes:
         self.color = color
     """
-    
     n_pipes = obstacle.n_pipes 
     bounds_left = -100
     bounds_right = 900
@@ -128,11 +106,7 @@ class bottom():
     width = []
     height = [150]
 
-
-   
-
     for i in range(0,n_pipes):
-        
         new_x = x[i] + 200
         new_y = int(500) 
         new_width = int(50)
@@ -143,28 +117,23 @@ class bottom():
         width.append(int(new_width))
         height.append(int(new_height))
 
-       
-
-
     def __init__(self, color):
+        """
+        Initializes the Bottom class.
+        """
         self.color = color 
 
-
-
     def make_pipe():
-      
+        """
+        Makes a pipe.
+        """
         for i in range(2,obstacle.n_pipes):
-            """
-            DRAWS out all the pipes on the screen
-            """
+            # DRAWS out all the pipes on the screen
             pyray.draw_rectangle(bottom.x[i], bottom.y[i], bottom.width[i], bottom.height[i], GREEN)
-
-       
-
 
     def move_pipes_X(game_over, score):
         """
-        MOVES all the pipes along the x axis
+        Moves all the pipes along the x axis.
         """
         if not game_over:
             for i in range(1,obstacle.n_pipes):
@@ -177,15 +146,9 @@ class bottom():
                 if score >= 20 :
                     bottom.x[i] -= int((obstacle.speed_of_pipe + 200)  * GetFrameTime())
 
-       
-
-
-            
-     
-    def bounds(game_over):
-        
+    def bounds(game_over):        
         """
-        gives a limit to x axis for the pipes
+        Gives a limit to x axis for the pipes.
         """
         if not game_over:
             for i in range(2,obstacle.n_pipes):
@@ -193,22 +156,9 @@ class bottom():
                     bottom.x[i] = int(obstacle.bounds_right)
                     bottom.y[i] = int(random.randint(400, 550))
 
-
     def animate(p_p):
         """
-       puts the image on top of the pipe
+        Puts the image on top of the pipe.
         """
-        
         for i in range(2,7):
-        
-       
-
             pyray.draw_texture(p_p, int(bottom.x[i] ) , int(bottom.y[i]  ) , WHITE)
-
-       
-             
-
-
-
-
-

@@ -1,16 +1,11 @@
-
 from raylib import *
 import pyray
 import time 
 
-
-
 def display_score(game_over, score): 
-    
     """
-    displays score and says game over when the game ends 
-    """
-    
+    Displays score and says game over when the game ends.
+    """  
     if not game_over:
         DrawText(bytes("score: ", encoding='utf8'), 10, 250, int(60), GREEN)
         DrawText(bytes(score, encoding='utf8'), 250, 250, int(60), GREEN)
