@@ -7,19 +7,18 @@ from game.score.score import display_score
 import pyray
 import time 
 
-
-
-
-
 def check_collide():   
-    
+    """
+    Checks for collisions.
+    """    
     game_over = False
     for i in range(1, obstacle.n_pipes):
         if pyray.check_collision_circle_rec([int(bird.x), int(bird.y)], bird.r,[bottom.x[i],bottom.y[i], bottom.width[i], bottom.height[i]] ):
            bird.y = obstacle.y[i]
            bird.x = obstacle.x[i]
            
-           game_over = True      
+           game_over = True   
+
         if pyray.check_collision_circle_rec([int(bird.x), int(bird.y)], bird.r,[obstacle.x[i],obstacle.y[i], obstacle.width[i], obstacle.height[i]] ):
            bird.y = obstacle.y[i]
            bird.x = obstacle.x[i]
@@ -28,11 +27,10 @@ def check_collide():
 
     return game_over
 
-
-
 def main():
-    
-    
+    """
+    Runs the game.
+    """
     pyray.init_window(800,600, "Flappy Penguin")
     SetWindowState(FLAG_VSYNC_HINT)
     keep_score = 0
@@ -40,7 +38,7 @@ def main():
     p = pictures.bird_pic()
     #bottom pipe picture
     p_p = pictures.pipe_2()
-   #top pipe picture
+    #top pipe picture
     p_d_p = pictures.pipe_1()
     #auidio
     flap = audio.audio()
@@ -92,5 +90,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
