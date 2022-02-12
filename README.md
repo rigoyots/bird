@@ -32,16 +32,32 @@ Bird is played according to the following rules.
 ---
 The project files and folders are organized as follows:
 ```
-root                          (project root folder)
-+-- Game Folder               (source code for game)
-  +-- Bird Folder             (source code for player)
-    +-- bird.py               (player class)
-  +-- Pipe folder             (source code for pipes)
-    +-- pipe.py               (pipe class)
-  +-- Other Folder            (source code for other aspects of the game)
-    +-- colors.py             (class for colors in the game)
-+-- __main__.py               (entry point for program)
-+-- README.md                 (general info)
+root (Bird)                    (project root folder)
++-- INSIDE THE GAME FOLDER --+
+  +-- Game Folder              (source code for game)
+    +-- Audio Folder           (source code for Audio)
+      +-- audio.py             (sound class)
+    +-- Bird Folder            (source code for player)
+      +-- bird.py              (player class)
+    +-- Picture Folder         (source code for pictures)
+      +-- pictures.py          (picture class)
+  +-- Pipe folder              (source code for pipes)
+    +-- pipe.py                (pipe class)
+  +-- Score folder             (source code for Score)
+    +-- score.py               (pipe class)
+  
++-- OUTSIDE THE GAME FOLDER --+ 
+  +-- .gitignore      
+  +-- downpipe.png             (image)
+  +-- flap.wav                 (sound)
+  +-- flappy1.png              (image)
+  +-- flappy3.png              (image)         
+  +-- main.py                  (entry point for program)
+  +-- over.wav                 (sound)
+  +-- pipe.png                 (image)
+  +-- README.md                (general info)
+  +-- test.py                  (test file)
+  +-- tests.py                 (bird test file)
 ```
 
 ### Required Technologies
