@@ -2,7 +2,7 @@
 from raylib import *
 import pyray
 
-class pictures:
+class Pictures():
     def pipe_1():
         """
         Loads the image for the bottom pipe.

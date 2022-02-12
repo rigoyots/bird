@@ -2,7 +2,7 @@
 from raylib import *
 import pyray
 
-class audio:
+class Audio():
     """
     The Audio class contains the code to produce the game's sounds.
     """

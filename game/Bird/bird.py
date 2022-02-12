@@ -1,7 +1,7 @@
 from raylib import *
 import pyray 
 
-class Bird:
+class Bird():
     """
     The Bird class is the character that the user will play. 
 

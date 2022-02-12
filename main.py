@@ -1,8 +1,8 @@
 from raylib import *
 from game.pipe.pipe import *
 from game.Bird.bird import *
-from game.audio.audio import audio
-from game.picture.pictures import pictures
+from game.audio.audio import *
+from game.picture.pictures import *
 from game.score.score import display_score
 import pyray
 import time 
@@ -12,16 +12,16 @@ def check_collide():
     Checks for collisions.
     """    
     game_over = False
-    for i in range(1, obstacle.n_pipes):
-        if pyray.check_collision_circle_rec([int(bird.x), int(bird.y)], bird.r,[bottom.x[i],bottom.y[i], bottom.width[i], bottom.height[i]] ):
-           bird.y = obstacle.y[i]
-           bird.x = obstacle.x[i]
+    for i in range(1, Obstacle.n_pipes):
+        if pyray.check_collision_circle_rec([int(bird.x), int(bird.y)], bird.r,[Bottom.x[i],Bottom.y[i], Bottom.width[i], Bottom.height[i]] ):
+           bird.y = Obstacle.y[i]
+           bird.x = Obstacle.x[i]
            
            game_over = True   
 
-        if pyray.check_collision_circle_rec([int(bird.x), int(bird.y)], bird.r,[obstacle.x[i],obstacle.y[i], obstacle.width[i], obstacle.height[i]] ):
-           bird.y = obstacle.y[i]
-           bird.x = obstacle.x[i]
+        if pyray.check_collision_circle_rec([int(bird.x), int(bird.y)], bird.r,[Obstacle.x[i],Obstacle.y[i], Obstacle.width[i], Obstacle.height[i]] ):
+           bird.y = Obstacle.y[i]
+           bird.x = Obstacle.x[i]
           
            game_over = True
 
@@ -36,17 +36,17 @@ def main():
     keep_score = 0
 
     #Bird picture 
-    p = pictures.bird_pic()
+    p = Pictures.bird_pic()
 
-    #bottom pipe picture
-    p_p = pictures.pipe_2()
+    #Bottom pipe picture
+    p_p = Pictures.pipe_2()
 
     #top pipe picture
-    p_d_p = pictures.pipe_1()
+    p_d_p = Pictures.pipe_1()
 
     #auidio
-    flap = audio.audio()
-    gameover = audio.audio_1()
+    flap = Audio.audio()
+    gameover = Audio.audio_1()
    
     while not WindowShouldClose():
         #checking if game is over 
@@ -73,16 +73,16 @@ def main():
         Bird.bird_out_of_bounds()
 
         # Pipe top
-        obstacle.bounds(game_over)
-        obstacle.make_pipe()
-        obstacle.animate(p_d_p)
-        obstacle.move_pipes_X(game_over, keep_score)
+        Obstacle.bounds(game_over)
+        Obstacle.make_pipe()
+        Obstacle.animate(p_d_p)
+        Obstacle.move_pipes_X(game_over, keep_score)
 
-        #bottom pipe
-        bottom.bounds(game_over)
-        bottom.make_pipe()
-        bottom.animate(p_p)
-        bottom.move_pipes_X(game_over, keep_score)
+        #Bottom pipe
+        Bottom.bounds(game_over)
+        Bottom.make_pipe()
+        Bottom.animate(p_p)
+        Bottom.move_pipes_X(game_over, keep_score)
 
         #background
         pyray.clear_background(RAYWHITE)
@@ -91,7 +91,7 @@ def main():
         #SOCRE AND CHECK POINTS
         check_collide()
         display_score(game_over, score)
-        
+
     #unload all data 
     pyray.unload_sound(gameover)        
     pyray.unload_sound(flap)
