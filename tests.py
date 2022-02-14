@@ -1,4 +1,9 @@
 # Emilee's Tests - bird.py
+"""
+    To run tests, please type the following in the terminal.
+
+    pytest tests.py       
+"""
 
 import pytest
 import game.Bird.bird
@@ -23,4 +28,3 @@ def test_movebird(monkeypatch):
     b = game.Bird.bird.Bird(500, 500, 5)
     b.move_bird()
     assert b.y == -100
-
