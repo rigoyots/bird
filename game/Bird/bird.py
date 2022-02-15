@@ -1,5 +1,7 @@
 from raylib import *
 import pyray 
+import constants
+from color.color import *
 
 class Bird():
     """

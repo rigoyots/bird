@@ -4,6 +4,8 @@ from game.Bird.bird import *
 from game.audio.audio import *
 from game.picture.pictures import *
 from game.score.score import display_score
+from game.color.color import *
+import constants
 import pyray
 import time 
 

@@ -1,6 +1,8 @@
 from raylib import *
 import random
 import pyray
+from bird.constants import *
+from game.color.color import *
 
 class Obstacle():
     """ 
