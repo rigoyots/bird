@@ -1,6 +1,7 @@
 from raylib import *
 import pyray
 import time 
+from bird.constants import *
 
 def display_score(game_over, score): 
     """
