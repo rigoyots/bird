@@ -30,7 +30,7 @@ class Bird():
         """
         pyray.draw_circle(int(bird.x), int(bird.y), bird.r, BLACK)
 
-    def move_bird():
+    def move_bird(self):
         """
         Moves the bird.
         """
