@@ -35,11 +35,11 @@ class Bird():
         Moves the bird.
         """
         if IsKeyPressed(KEY_SPACE): 
-            bird.y -= 600 * GetFrameTime()
+            self.y -= 600 * GetFrameTime()
         elif IsKeyDown(KEY_SPACE):
-            bird.y -= 600 * GetFrameTime()
+            self.y -= 600 * GetFrameTime()
         else: #IsKeyUp(KEY_SPACE)
-            bird.y += 250 * GetFrameTime()
+            self.y += 250 * GetFrameTime()
 
 
     def bird_out_of_bounds(self):
