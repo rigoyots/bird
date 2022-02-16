@@ -67,10 +67,10 @@ def main():
         score = str(int(keep_score))
 
         # Bird
-        Bird.draw_bird()
+        Bird.draw_bird(bird)
         pyray.draw_texture(p, int(bird.x -10) , int(bird.y -10 ) , WHITE)
-        Bird.move_bird()
-        Bird.bird_out_of_bounds()
+        Bird.move_bird(bird)
+        Bird.bird_out_of_bounds(bird)
 
         # Pipe top
         Obstacle.bounds(game_over)

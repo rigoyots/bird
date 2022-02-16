@@ -24,13 +24,13 @@ class Bird():
         self.y = y
         self.r = r
 
-    def draw_bird():
+    def draw_bird(self):
         """
         Draws the bird.
         """
-        pyray.draw_circle(int(bird.x), int(bird.y), bird.r, BLACK)
+        pyray.draw_circle(int(self.x), int(self.y), self.r, BLACK)
 
-    def move_bird():
+    def move_bird(self):
         """
         Moves the bird.
         """
@@ -42,13 +42,13 @@ class Bird():
             bird.y += 250 * GetFrameTime()
 
 
-    def bird_out_of_bounds():
+    def bird_out_of_bounds(self):
         """
         Checks if the bird is out of bounds.
         """
-        if bird.y <= 0:
-            bird.y = 2
-        elif bird.y >= 600:
-            bird.y = 599
+        if self.y <= 0:
+            self.y = 2
+        elif self.y >= 600:
+            self.y = 599
 
 bird = Bird(200, 300, 5)
