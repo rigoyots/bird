@@ -23,7 +23,7 @@ def test_display_score():
     game_over = True
     assert display_score(game_over, 0) == None
 
-
+# from bird.py
 def test_movebird(monkeypatch):
     """
     Tests: 
@@ -43,7 +43,7 @@ def test_movebird(monkeypatch):
     monkeypatch.setattr("game.Bird.bird.GetFrameTime", mock_get_frame_time)
     b = game.Bird.bird.Bird(500, 500, 5)
     b.move_bird()
-    assert b.y == 500
+    assert b.y == -100
 
 
 
